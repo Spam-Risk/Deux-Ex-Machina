@@ -3,4 +3,7 @@
 }
 #mainbox {
   background-color: blue
+  width: 80%
+  height: 80%
+  border: 2px double black
 }
