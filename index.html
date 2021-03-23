@@ -8,12 +8,20 @@
 <body>
   <script type="text/javascript">
     let type = "WebGL"
-    if(!PIXI.utils.isWebGLSupported()){
-      type = "canvas"
-    }
+    if(!PIXI.utils.isWebGLSupported()){type = "canvas"}
     PIXI.utils.sayHello(type)
     let app = new PIXI.Application({width: 1024, height: 1024});
     document.body.appendChild(app.view);
+
+    PIXI.loader
+    .add("images/ror2_b.png")
+    .load(setup);
+
+    function setup() {
+      let sprite = new PIXI.Sprite(
+        PIXI.loader.resources["images/anyImage.png"].texture
+      );
+    }
   </script>
 </body>
 </html>
