@@ -38,10 +38,10 @@
       sprite.scale.set(0.1, 0.2);
       sprite.anchor.set(0.5, 0,5);
       
-      app.ticker.add(delta => gameloop(delta));
+      app.ticker.add(delta => gameLoop(delta));
     }
     
-    function gameloop(delta) {
+    function gameLoop(delta) {
       sprite.x += 1;
     }
   </script>
