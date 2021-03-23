@@ -29,7 +29,7 @@
       .add("Odyssey.jpg")
       .load(setup);
 
-    let sprite;
+    let sprite, state;
     
     function setup() {
       let sprite = new Sprite(resources["Odyssey.jpg"].texture);
@@ -38,11 +38,18 @@
       sprite.scale.set(0.1, 0.2);
       sprite.anchor.set(0.5, 0,5);
       
+      state = play;
+      
       app.ticker.add(delta => gameLoop(delta));
     }
     
     function gameLoop(delta) {
-      sprite.x += 1;
+      state(delta);
+    }
+    
+    function play(delta) {
+      cat.vx = 1
+      cat.x += cat.vx
     }
   </script>
 </body>
