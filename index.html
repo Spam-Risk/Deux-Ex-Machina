@@ -35,6 +35,8 @@
       sprite.position.set(window.innerWidth/2, window.innerHeight/2)
       sprite.scale.set(0.1, 0.2)
       sprite.anchor.set(0.5, 0,5)
+      
+      app.ticker.add(delta => gameloop(delta))
     }
     
     function gameloop(delta) {
