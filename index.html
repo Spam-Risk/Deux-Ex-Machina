@@ -11,7 +11,13 @@
     let type = "WebGL"
     if(!PIXI.utils.isWebGLSupported()){type = "canvas"}
     PIXI.utils.sayHello(type)
-    let app = new PIXI.Application({width: 1024, height: 1024});
+    
+    let Application = PIXI.Application,
+    loader = PIXI.loader,
+    resources = PIXI.loader.resources,
+    Sprite = PIXI.Sprite;
+    
+    let app = new Application({width: 1024, height: 1024});
     document.body.appendChild(app.view);
     
     app.renderer.view.style.position = "absolute";
@@ -19,12 +25,12 @@
     app.renderer.autoResize = true;
     app.renderer.resize(window.innerWidth, window.innerHeight);
 
-    PIXI.loader
+    loader
     .add("ror2_b.jpg")
     .load(setup);
 
     function setup() {
-      let sprite = new PIXI.Sprite(PIXI.loader.resources["ror2_b.jpg"].texture);
+      let sprite = new Sprite(resources["ror2_b.jpg"].texture);
       app.stage.addChild(sprite)
     }
   </script>
