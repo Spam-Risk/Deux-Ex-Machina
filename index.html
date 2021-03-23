@@ -12,6 +12,11 @@
     PIXI.utils.sayHello(type)
     let app = new PIXI.Application({width: 1024, height: 1024});
     document.body.appendChild(app.view);
+    
+    app.renderer.view.style.position = "absolute";
+    app.renderer.view.style.display = "block";
+    app.renderer.autoResize = true;
+    app.renderer.resize(window.innerWidth, window.innerHeight);
 
     PIXI.loader
     .add("ror2_b.jpg")
