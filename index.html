@@ -40,10 +40,10 @@
       sprite.vx = 0;
       sprite.vy = 0;
       
-      let left = keyboard("ArrowLeft"),
-        up = keyboard("ArrowUp"),
-        right = keyboard("ArrowRight"),
-        down = keyboard("ArrowDown");
+      let left = keyboard(37),
+        up = keyboard(38),
+        right = keyboard(39),
+        down = keyboard(40);
 
       left.press = () => {
         cat.vx = -5;
