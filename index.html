@@ -35,16 +35,16 @@
       var left = keyboard(37), up = keyboard(38), right = keyboard(39), down = keyboard(40);
 
       left.press = () => {sprite.vx = -5; sprite.vy = 0;};
-      left.release = () => {if (!right.isDown && cat.vy === 0) {sprite.vx = 0;}};
+      left.release = () => {if (!right.isDown && sprite.vy === 0) {sprite.vx = 0;}};
 
       up.press = () => {sprite.vy = -5; sprite.vx = 0;};
-      up.release = () => {if (!down.isDown && cat.vx === 0) {sprite.vy = 0;}};
+      up.release = () => {if (!down.isDown && sprite.vx === 0) {sprite.vy = 0;}};
 
       right.press = () => {sprite.vx = 5; sprite.vy = 0;};
-      right.release = () => {if (!left.isDown && cat.vy === 0) {sprite.vx = 0;}};
+      right.release = () => {if (!left.isDown && sprite.vy === 0) {sprite.vx = 0;}};
 
       down.press = () => {sprite.vy = 5;sprite.vx = 0;};
-      down.release = () => {if (!up.isDown && cat.vx === 0) {sprite.vy = 0;}};
+      down.release = () => {if (!up.isDown && sprite.vx === 0) {sprite.vy = 0;}};
       
       state = play;
       
