@@ -10,7 +10,7 @@
     let Container = PIXI.Container, autoDetectRenderer = PIXI.autoDetectRenderer, Sprite = PIXI.Sprite, loader = PIXI.loader, resources = PIXI.loader.resources
     
     let stage = new Container(),
-        renderer = autoDetectRenderer(window.innerHeight, window.innerHeight);
+        renderer = autoDetectRenderer(window.innerHeight - 16, window.innerHeight - 16);
     document.body.appendChild(renderer.view);
 
     renderer.view.style.border = "1px dashed black";
