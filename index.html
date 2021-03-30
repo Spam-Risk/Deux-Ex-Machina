@@ -44,17 +44,17 @@
       
       var left = keyboard(37), up = keyboard(38), right = keyboard(39), down = keyboard(40);
 
-      left.press = () => {sprite.vx = -5; sprite.vy = 0;};
-      left.release = () => {if (!right.isDown && sprite.vy === 0) {sprite.vx = 0;}};
+      left.press = () => {sprite.accelerationX = -sprite.speed; sprite.frictionX = 1;};
+      left.release = () => {if (!right.isDown && sprite.vy === 0) {sprite.accelerationX = 0; sprite.frictionX = sprite.drag}};
 
-      up.press = () => {sprite.vy = -5; sprite.vx = 0;};
-      up.release = () => {if (!down.isDown && sprite.vx === 0) {sprite.vy = 0;}};
+      up.press = () => {sprite.accelerationY = -sprite.speed; sprite.frictionY = 1;};
+      up.release = () => {if (!down.isDown && sprite.vx === 0) {sprite.accelerationY = 0; sprite.frictionY = sprite.drag}};
 
-      right.press = () => {sprite.vx = 5; sprite.vy = 0;};
-      right.release = () => {if (!left.isDown && sprite.vy === 0) {sprite.vx = 0;}};
+      right.press = () => {sprite.accelerationX = sprite.speed; sprite.frictionX = 1;};
+      right.release = () => {if (!left.isDown && sprite.vy === 0) {sprite.accelerationX = 0; sprite.frictionX = sprite.drag}};
 
-      down.press = () => {sprite.vy = 5; sprite. vx = 0;};
-      down.release = () => {if (!up.isDown && sprite.vx === 0) {sprite.vy = 0;}};
+      down.press = () => {sprite.accelerationY = sprite.speed; sprite.frictionY = 1;};
+      down.release = () => {if (!up.isDown && sprite.vx === 0) {sprite.accelerationY = 0; sprite.frictionY = sprite.drag}};
       
       state = play;
       
