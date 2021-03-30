@@ -27,8 +27,8 @@
     function setup() {
       sprite = new Sprite(resources["Odyssey.jpg"].texture);
       
-      sprite.x = renderer.view.width / 2;
-      sprite.y = renderer.view.width / 2;
+      sprite.x = renderer.view.width / 2 - sprite.width / 2;
+      sprite.y = renderer.view.width / 2 - sprite.height / 2;
       sprite.width = window.innerHeight / 5;
       sprite.height = window.innerHeight / 5;
       sprite.vx = 0;
@@ -45,16 +45,16 @@
       var left = keyboard(37), up = keyboard(38), right = keyboard(39), down = keyboard(40);
 
       left.press = () => {sprite.accelerationX = -sprite.speed; sprite.frictionX = 1;};
-      left.release = () => {if (!right.isDown && sprite.vy === 0) {sprite.accelerationX = 0; sprite.frictionX = sprite.drag}};
+      left.release = () => {if (!right.isDown) {sprite.accelerationX = 0; sprite.frictionX = sprite.drag}};
 
       up.press = () => {sprite.accelerationY = -sprite.speed; sprite.frictionY = 1;};
-      up.release = () => {if (!down.isDown && sprite.vx === 0) {sprite.accelerationY = 0; sprite.frictionY = sprite.drag}};
+      up.release = () => {if (!down.isDown) {sprite.accelerationY = 0; sprite.frictionY = sprite.drag}};
 
       right.press = () => {sprite.accelerationX = sprite.speed; sprite.frictionX = 1;};
-      right.release = () => {if (!left.isDown && sprite.vy === 0) {sprite.accelerationX = 0; sprite.frictionX = sprite.drag}};
+      right.release = () => {if (!left.isDown) {sprite.accelerationX = 0; sprite.frictionX = sprite.drag}};
 
       down.press = () => {sprite.accelerationY = sprite.speed; sprite.frictionY = 1;};
-      down.release = () => {if (!up.isDown && sprite.vx === 0) {sprite.accelerationY = 0; sprite.frictionY = sprite.drag}};
+      down.release = () => {if (!up.isDown) {sprite.accelerationY = 0; sprite.frictionY = sprite.drag}};
       
       state = play;
       
