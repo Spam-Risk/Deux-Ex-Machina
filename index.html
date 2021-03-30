@@ -70,8 +70,14 @@
     }
     
     function play() {
-      sprite.y += sprite.vy
+      sprite.vy += sprite.accelerationY
+      sprite.vx += sprite.accelerationX
+      
+      sprite.vx *= sprite.frictionX
+      sprite.vy *= sprite.frictionY
+      
       sprite.x += sprite.vx
+      sprite.y += sprite.vy
     }
     
     function keyboard(keyCode) {
