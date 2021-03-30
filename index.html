@@ -28,10 +28,14 @@
       sprite = new Sprite(resources["Odyssey.jpg"].texture);
       player = new Sprite(resources["Odyssey.jpg"].texture);
       
-      player.width = window.innerHeight / 5;
-      player.height = window.innerHeight / 5;
+      player.width = renderer.view.width / 5;
+      player.height = renderer.view.height / 5;
+      sprite.width = renderer.view.width
+      sprite.height = renderer.view.height
+      player.x = renderer.view.width / 2 - player.width / 2;
+      player.y = renderer.view.height / 2 - player.height / 2;
       sprite.x = renderer.view.width / 2 - sprite.width / 2;
-      sprite.y = renderer.view.width / 2 - sprite.height / 2;
+      sprite.y = renderer.view.height / 2 - sprite.height / 2;
       sprite.vx = 0;
       sprite.vy = 0;
       sprite.accelerationX = 0;
