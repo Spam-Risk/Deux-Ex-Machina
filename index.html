@@ -95,8 +95,8 @@
       let collision = contain(sprite, {x:0, y:0, width: renderer.view.width, height: renderer.view.height});
       
       if (collision) {
-        if(collision.has("left") || collision.has("right")) {sprite.vx = -sprite.vx}
-        if(collision.has("top") || collision.has("bottom")) {sprite.vy = -sprite.vy}
+        if(collision.has("left") || collision.has("right")) {sprite.vx = 0.5 * -sprite.vx}
+        if(collision.has("top") || collision.has("bottom")) {sprite.vy = 0.5 * -sprite.vy}
       }
     }
     
