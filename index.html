@@ -78,6 +78,13 @@
       
       sprite.x += sprite.vx
       sprite.y += sprite.vy
+      
+      let collision = contain(sprite, {x:0, y:0, width: renderer.view.width, height: renderer.view.height});
+      
+      if (collision) {
+        if(collision.has("left") || collision.has("right")) {sprite.vx = -sprite.vx}
+        if(collision.has("top") || collision.has("bottom")) {sprite.vy = -sprite.vy}
+      }
     }
     
     function keyboard(keyCode) {
