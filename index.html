@@ -26,9 +26,10 @@
     
     function setup() {
       sprite = new Sprite(resources["Odyssey.jpg"].texture);
+      player = new Sprite(resources["Odyssey.jpg"].texture);
       
-      sprite.width = window.innerHeight / 5;
-      sprite.height = window.innerHeight / 5;
+      player.width = window.innerHeight / 5;
+      player.height = window.innerHeight / 5;
       sprite.x = renderer.view.width / 2 - sprite.width / 2;
       sprite.y = renderer.view.width / 2 - sprite.height / 2;
       sprite.vx = 0;
