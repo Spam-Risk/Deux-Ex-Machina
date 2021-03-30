@@ -98,7 +98,7 @@
       sprite.x -= sprite.vx
       sprite.y -= sprite.vy
       
-      let collision = contain(sprite, {x:0, y:0, width: renderer.view.width, height: renderer.view.height});
+      let collision = contain(sprite, {x:renderer.view.width / 2 - sprite.width / 2, y:renderer.view.height / 2 - sprite.height / 2, width: sprite.width, height: sprite.height});
       
       if (collision) {
         if(collision.has("left") || collision.has("right")) {sprite.vx = 0}
@@ -114,15 +114,9 @@
       key.press = undefined;
       key.release = undefined;
 
-      key.downHandler = function(event) {
-        if (event.keyCode === key.code) {if (key.isUp && key.press) key.press(); key.isDown = true; key.isUp = false;}
-        event.preventDefault();
-      };
+      key.downHandler = function(event) {if (event.keyCode === key.code) {if (key.isUp && key.press) key.press(); key.isDown = true; key.isUp = false;} event.preventDefault();};
 
-      key.upHandler = function(event) {
-        if (event.keyCode === key.code) {if (key.isDown && key.release) key.release(); key.isDown = false; key.isUp = true;}
-        event.preventDefault();
-      };
+      key.upHandler = function(event) {if (event.keyCode === key.code) {if (key.isDown && key.release) key.release(); key.isDown = false; key.isUp = true;} event.preventDefault();};
 
       window.addEventListener("keydown", key.downHandler.bind(key), false);
       window.addEventListener("keyup", key.upHandler.bind(key), false);
