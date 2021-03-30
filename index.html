@@ -44,17 +44,17 @@
       
       var left = keyboard(37), up = keyboard(38), right = keyboard(39), down = keyboard(40);
 
-      right.press = () => {sprite.accelerationX = -sprite.speed; sprite.frictionX = 1;};
-      right.release = () => {if (!right.isDown && sprite.vy === 0) {sprite.accelerationX = 0; sprite.frictionX = sprite.drag}};
+      left.press = () => {sprite.accelerationX = -sprite.speed; sprite.frictionX = 1;};
+      left.release = () => {if (!right.isDown && sprite.vy === 0) {sprite.accelerationX = 0; sprite.frictionX = sprite.drag}};
 
-      down.press = () => {sprite.accelerationY = -sprite.speed; sprite.frictionY = 1;};
-      down.release = () => {if (!down.isDown && sprite.vx === 0) {sprite.accelerationY = 0; sprite.frictionY = sprite.drag}};
+      up.press = () => {sprite.accelerationY = -sprite.speed; sprite.frictionY = 1;};
+      up.release = () => {if (!down.isDown && sprite.vx === 0) {sprite.accelerationY = 0; sprite.frictionY = sprite.drag}};
 
-      left.press = () => {sprite.accelerationX = sprite.speed; sprite.frictionX = 1;};
-      left.release = () => {if (!left.isDown && sprite.vy === 0) {sprite.accelerationX = 0; sprite.frictionX = sprite.drag}};
+      right.press = () => {sprite.accelerationX = sprite.speed; sprite.frictionX = 1;};
+      right.release = () => {if (!left.isDown && sprite.vy === 0) {sprite.accelerationX = 0; sprite.frictionX = sprite.drag}};
 
-      up.press = () => {sprite.accelerationY = sprite.speed; sprite.frictionY = 1;};
-      up.release = () => {if (!up.isDown && sprite.vx === 0) {sprite.accelerationY = 0; sprite.frictionY = sprite.drag}};
+      down.press = () => {sprite.accelerationY = sprite.speed; sprite.frictionY = 1;};
+      down.release = () => {if (!up.isDown && sprite.vx === 0) {sprite.accelerationY = 0; sprite.frictionY = sprite.drag}};
       
       state = play;
       
@@ -89,8 +89,8 @@
       sprite.vx *= sprite.frictionX
       sprite.vy *= sprite.frictionY
       
-      sprite.x += sprite.vx
-      sprite.y += sprite.vy
+      sprite.x -= sprite.vx
+      sprite.y -= sprite.vy
       
       let collision = contain(sprite, {x:0, y:0, width: renderer.view.width, height: renderer.view.height});
       
