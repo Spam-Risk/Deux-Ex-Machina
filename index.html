@@ -110,6 +110,9 @@
       sprite.vx *= sprite.frictionX
       sprite.vy *= sprite.frictionY
       
+      if (sprite.vx > 1) {sprite.vx = 1}
+      if (sprite.vy > 1) {sprite.vy = 1}
+      
       sprite.x -= sprite.vx
       sprite.y -= sprite.vy
       
