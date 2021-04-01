@@ -116,7 +116,7 @@
       sprite.x -= sprite.vx
       sprite.y -= sprite.vy
       
-      let collision = contain(sprite, {x:player.x, y:player.y, width: player.width, height: 0});
+      let collision = contain(sprite, {x:player.x, y:player.y - player.height, width: player.width, height: 0});
       
       if (collision) {
         if(collision.has("left") || collision.has("right")) {sprite.vx = 0}
