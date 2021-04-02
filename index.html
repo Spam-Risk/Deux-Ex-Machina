@@ -29,7 +29,7 @@
     let mapfloor, state;
     
     function setup() {
-      //bgwall = new Sprite(resources["Odyssey.jpg"].texture);
+      bgwall = new Sprite(resources["Odyssey.jpg"].texture);
       player = new Sprite(resources["Odyssey.jpg"].texture);
       sprite3 = new Sprite(resources["Odyssey.jpg"].texture);
       
@@ -39,7 +39,7 @@
       player.height = renderer.view.height / 5;
       mapfloor.width = renderer.view.width * 1.5;
       mapfloor.height = renderer.view.height * 1.5;
-      //bgwall.height = mapfloor.height / 3;
+      bgwall.height = mapfloor.height / 4;
       player.x = renderer.view.width / 2 - player.width / 2;
       player.y = renderer.view.height / 2 - player.height / 2;
       mapfloor.x = -player.width / 2;
@@ -53,7 +53,7 @@
       mapfloor.speed = 0.25;
       mapfloor.drag = 0.75;
       
-      //mapfloor.addChild(bgwall);
+      mapfloor.addChild(bgwall);
       mapfloor.addChild(sprite3);
       stage.addChild(mapfloor);
       stage.addChild(player);
@@ -126,7 +126,7 @@
       mapfloor.x -= mapfloor.vx
       mapfloor.y -= mapfloor.vy
       
-      let collision = contain(mapfloor, {x:player.x, y:player.y + player.height, width: player.width, height: 0});
+      let collision = contain(mapfloor, {x:player.x, y:player.y + player.height / 2, width: player.width, height: 0});
       
       if (collision) {
         if(collision.has("left") || collision.has("right")) {mapfloor.vx = 0}
