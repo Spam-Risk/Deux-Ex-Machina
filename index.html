@@ -31,7 +31,7 @@
     function setup() {
       //bgwall = new Sprite(resources["Odyssey.jpg"].texture);
       player = new Sprite(resources["Odyssey.jpg"].texture);
-      sprite = new Sprite(resources["Odyssey.jpg"].texture);
+      sprite3 = new Sprite(resources["Odyssey.jpg"].texture);
       
       mapfloor = new Container();
       
@@ -54,6 +54,7 @@
       mapfloor.drag = 0.75;
       
       //mapfloor.addChild(bgwall);
+      mapfloor.addChild(sprite3);
       stage.addChild(player);
       stage.addChild(mapfloor);
       
