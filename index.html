@@ -29,7 +29,7 @@
     let mapfloor, state;
     
     function setup() {
-      bgwall = new Sprite(resources["Odyssey.jpg"].texture);
+      //bgwall = new Sprite(resources["Odyssey.jpg"].texture);
       sprite = new Sprite(resources["Odyssey.jpg"].texture);
       player = new Sprite(resources["Odyssey.jpg"].texture);
       
@@ -39,7 +39,7 @@
       player.height = renderer.view.height / 5;
       mapfloor.width = renderer.view.width * 1.5;
       mapfloor.height = renderer.view.height * 1.5;
-      bgwall.height = mapfloor.height / 3;
+      //bgwall.height = mapfloor.height / 3;
       player.x = renderer.view.width / 2 - player.width / 2;
       player.y = renderer.view.height / 2 - player.height / 2;
       mapfloor.x = renderer.view.width / 2 - mapfloor.width / 2;
@@ -54,9 +54,9 @@
       mapfloor.drag = 0.75;
       
       mapfloor.addChild(sprite);
-      mapfloor.addChild(bgwall);
+      //mapfloor.addChild(bgwall);
       stage.addChild(player);
-      stage.addChild(mapfloor)
+      stage.addChild(mapfloor);
       
       var left = keyboard(37),
           up = keyboard(38),
@@ -93,16 +93,20 @@
       
       if (sprite2.x > container.x) {
         sprite2.x = container.x;
-        collision.add("right");}
+        collision.add("right");
+      }
       if (sprite2.y > container.y) {
         sprite2.y = container.y;
-        collision.add("bottom");}
+        collision.add("bottom");
+      }
       if (sprite2.x + sprite2.width < container.width + container.x) {
         sprite2.x = container.width - sprite2.width + container.x;
-        collision.add("left");}
+        collision.add("left");
+      }
       if (sprite2.y + sprite2.height < container.height + container.y) {
         sprite2.y = container.height - sprite2.height + container.y;
-        collision.add("top");}
+        collision.add("top");
+      }
       
       if (collision.size === 0) collision = undefined;
       
@@ -116,8 +120,8 @@
       mapfloor.vx *= mapfloor.frictionX
       mapfloor.vy *= mapfloor.frictionY
       
-      if (mapfloor.vx > 5) {mapfloor.vx = 5} else if (mapfloor.vx < -5) {mapfloor.vx = -5};
-      if (mapfloor.vy > 5) {mapfloor.vy = 5} else if (mapfloor.vy < -5) {mapfloor.vy = -5};
+      if (mapfloor.vx > 5) {mapfloor.vx = 5} else if (mapfloor.vx < -5) {mapfloor.vx = -5}
+      if (mapfloor.vy > 5) {mapfloor.vy = 5} else if (mapfloor.vy < -5) {mapfloor.vy = -5}
       
       mapfloor.x -= mapfloor.vx
       mapfloor.y -= mapfloor.vy
