@@ -26,48 +26,51 @@
       .add("Odyssey.jpg")
       .load(setup);
 
-    let sprite, state;
+    let mapfloor, state;
     
     function setup() {
       player = new Sprite(resources["Odyssey.jpg"].texture);
       sprite = new Sprite(resources["Odyssey.jpg"].texture);
       
+      mapfloor = new Container();
+      
       player.width = renderer.view.width / 5;
       player.height = renderer.view.height / 5;
-      sprite.width = renderer.view.width * 1.5;
-      sprite.height = renderer.view.height * 1.5;
+      mapfloor.width = renderer.view.width * 1.5;
+      mapfloor.height = renderer.view.height * 1.5;
       player.x = renderer.view.width / 2 - player.width / 2;
       player.y = renderer.view.height / 2 - player.height / 2;
-      sprite.x = renderer.view.width / 2 - sprite.width / 2;
-      sprite.y = renderer.view.height / 2 - sprite.height / 2;
-      sprite.vx = 0;
-      sprite.vy = 0;
-      sprite.accelerationX = 0;
-      sprite.accelerationY = 0;
-      sprite.frictionX = 1;
-      sprite.frictionY = 1;
-      sprite.speed = 0.25;
-      sprite.drag = 0.75;
+      mapfloor.x = renderer.view.width / 2 - mapfloor.width / 2;
+      mapfloor.y = renderer.view.height / 2 - mapfloor.height / 2;
+      mapfloor.vx = 0;
+      mapfloor.vy = 0;
+      mapfloor.accelerationX = 0;
+      mapfloor.accelerationY = 0;
+      mapfloor.frictionX = 1;
+      mapfloor.frictionY = 1;
+      mapfloor.speed = 0.25;
+      mapfloor.drag = 0.75;
       
-      stage.addChild(sprite);
+      mapfloor.addChild(sprite);
       stage.addChild(player);
+      stage.addChild(mapfloor)
       
       var left = keyboard(37),
           up = keyboard(38),
           right = keyboard(39),
           down = keyboard(40);
 
-      left.press = () => {sprite.accelerationX = -sprite.speed; sprite.frictionX = 1;};
-      left.release = () => {if (!right.isDown) {sprite.accelerationX = 0; sprite.frictionX = sprite.drag}};
+      left.press = () => {mapfloor.accelerationX = -mapfloor.speed; mapfloor.frictionX = 1;};
+      left.release = () => {if (!right.isDown) {mapfloor.accelerationX = 0; mapfloor.frictionX = mapfloor.drag}};
 
-      up.press = () => {sprite.accelerationY = -sprite.speed; sprite.frictionY = 1;};
-      up.release = () => {if (!down.isDown) {sprite.accelerationY = 0; sprite.frictionY = sprite.drag}};
+      up.press = () => {mapfloor.accelerationY = -mapfloor.speed; mapfloor.frictionY = 1;};
+      up.release = () => {if (!down.isDown) {mapfloor.accelerationY = 0; mapfloor.frictionY = mapfloor.drag}};
 
-      right.press = () => {sprite.accelerationX = sprite.speed; sprite.frictionX = 1;};
-      right.release = () => {if (!left.isDown) {sprite.accelerationX = 0; sprite.frictionX = sprite.drag}};
+      right.press = () => {mapfloor.accelerationX = mapfloor.speed; mapfloor.frictionX = 1;};
+      right.release = () => {if (!left.isDown) {mapfloor.accelerationX = 0; mapfloor.frictionX = mapfloor.drag}};
 
-      down.press = () => {sprite.accelerationY = sprite.speed; sprite.frictionY = 1;};
-      down.release = () => {if (!up.isDown) {sprite.accelerationY = 0; sprite.frictionY = sprite.drag}};
+      down.press = () => {mapfloor.accelerationY = mapfloor.speed; mapfloor.frictionY = 1;};
+      down.release = () => {if (!up.isDown) {mapfloor.accelerationY = 0; mapfloor.frictionY = mapfloor.drag}};
       
       state = play;
       
@@ -104,23 +107,23 @@
     }
     
     function play() {
-      sprite.vy += sprite.accelerationY
-      sprite.vx += sprite.accelerationX
+      mapfloor.vy += mapfloor.accelerationY
+      mapfloor.vx += mapfloor.accelerationX
       
-      sprite.vx *= sprite.frictionX
-      sprite.vy *= sprite.frictionY
+      mapfloor.vx *= mapfloor.frictionX
+      mapfloor.vy *= mapfloor.frictionY
       
-      if (sprite.vx > 5) {sprite.vx = 5} else if (sprite.vx < -5) {sprite.vx = -5};
-      if (sprite.vy > 5) {sprite.vy = 5} else if (sprite.vy < -5) {sprite.vy = -5};
+      if (mapfloor.vx > 5) {mapfloor.vx = 5} else if (mapfloor.vx < -5) {mapfloor.vx = -5};
+      if (mapfloor.vy > 5) {mapfloor.vy = 5} else if (mapfloor.vy < -5) {mapfloor.vy = -5};
       
-      sprite.x -= sprite.vx
-      sprite.y -= sprite.vy
+      mapfloor.x -= mapfloor.vx
+      mapfloor.y -= mapfloor.vy
       
-      let collision = contain(sprite, {x:player.x, y:player.y + player.height, width: player.width, height: 0});
+      let collision = contain(mapfloor, {x:player.x, y:player.y + player.height, width: player.width, height: 0});
       
       if (collision) {
-        if(collision.has("left") || collision.has("right")) {sprite.vx = 0}
-        if(collision.has("top") || collision.has("bottom")) {sprite.vy = 0}
+        if(collision.has("left") || collision.has("right")) {mapfloor.vx = 0}
+        if(collision.has("top") || collision.has("bottom")) {mapfloor.vy = 0}
       }
     }
     
