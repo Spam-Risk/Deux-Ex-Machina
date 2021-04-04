@@ -128,7 +128,6 @@
       mapfloor.y -= mapfloor.vy
       
       let collision = contain(mapfloor, {x:player.x, y:player.y + player.height / 2, width: player.width, height: player.height / 2});
-      collision.style.border = "2px dotted red";
       
       if (collision) {
         if(collision.has("left") || collision.has("right")) {mapfloor.vx = 0}
