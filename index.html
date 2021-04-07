@@ -33,6 +33,7 @@
       player = new Sprite(resources["Before_the_night.jpg"].texture);
       sprite3 = new Sprite(resources["Odyssey.jpg"].texture);
       bgwall = new Sprite(resources["Before_the_night.jpg"].texture);
+      randObj = new Sprite(resources["Before_the_night.jpg"].texture);
       
       mapfloor = new Container();
       
@@ -41,6 +42,8 @@
       mapfloor.width = renderer.view.width * 1.5;
       mapfloor.height = renderer.view.height * 1.5;
       bgwall.height = renderer.view.height / 4;
+      randObj.width = renderer.view.width / 10;
+      randObj.height = renderer.view.width / 5;
       player.x = renderer.view.width / 2 - player.width / 2;
       player.y = renderer.view.height / 2 - player.height / 2;
       mapfloor.x = -player.width / 2;
@@ -54,8 +57,12 @@
       mapfloor.speed = 0.25;
       mapfloor.drag = 0.75;
       
+      randObj.x = Math.floor(Math.random() * (renderer.view.width + 1))
+      randObj.y = Math.floor(Math.random() * (renderer.view.height + 1))
+      
       mapfloor.addChild(sprite3);
       mapfloor.addChild(bgwall);
+      mapfloor.addChild(randObj);
       stage.addChild(mapfloor);
       stage.addChild(player);
       
