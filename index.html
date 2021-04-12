@@ -57,7 +57,7 @@
       
       let hitBoxRect = new Graphics();
       hitBoxRect.lineStyle(4, 0xFF0000, 1);
-      hitBoxRect.drawRect(player.x, player.y + player.y / 2, player.width - 8, player.height / 2 - 8);
+      hitBoxRect.drawRect(player.x + 4, player.y - player.y / 2 + 4, player.width - 4, player.height / 2 - 4);
       let bgWallRect = new Graphics();
       bgWallRect.lineStyle(4, 0xFF0000, 1);
       bgWallRect.drawRect(bgwall.x, bgwall.y, bgwall.width - 8, bgwall.height - 8);
