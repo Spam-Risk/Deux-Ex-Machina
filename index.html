@@ -62,15 +62,15 @@
       bgWallRect.lineStyle(4, 0xFF0000, 1);
       bgWallRect.drawRect(bgwall.x, bgwall.y, bgwall.width - 8, bgwall.height - 8);
       
-      player.visible = false;
+      player.visible = true;
       bgwall.visible = false;
       
       mapfloor.addChild(sprite3);
       mapfloor.addChild(bgwall);
       mapfloor.addChild(bgWallRect);
       stage.addChild(mapfloor);
-      stage.addChild(hitBoxRect);
       stage.addChild(player);
+      stage.addChild(hitBoxRect);
       
       var left = keyboard(37),
           up = keyboard(38),
