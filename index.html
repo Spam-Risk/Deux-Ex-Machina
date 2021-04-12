@@ -56,10 +56,16 @@
       
       let hitBoxRect = new Graphics();
       hitBoxRect.lineStyle(4, 0xFF0000, 1);
-      rectangle.drawRect(player.x, player.y + player.y / 2, player.width, player.height / 2);
+      hitBoxRect.drawRect(player.x, player.y + player.y / 2, player.width, player.height / 2);
+      let bgWallRect = new Graphics();
+      bgWallRect.lineStyle(4, 0xFF0000, 1);
+      bgWallRect.drawRect(bgwall.x, bgwall.y, bgwall.width, bgwall.height);
+      
       
       mapfloor.addChild(sprite3);
       mapfloor.addChild(bgwall);
+      mapfloor.addChild(hitBoxRect);
+      mapfloor.addChild(bgWallRect);
       stage.addChild(mapfloor);
       stage.addChild(player);
       
@@ -131,7 +137,7 @@
       mapfloor.x -= mapfloor.vx
       mapfloor.y -= mapfloor.vy
       
-      let collision = contain(mapfloor, {x:player.x, y:player.y + player.height / 2, width: player.width, height: player.height / 2});
+      let collision = contain(mapfloor, {x:player.x, y:player.y, width: player.width, height: player.height});
       
       if (collision) {
         if(collision.has("left") || collision.has("right")) {mapfloor.vx = 0}
