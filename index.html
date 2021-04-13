@@ -29,7 +29,7 @@
       .add("Before_the_night.jpg")
       .load(setup);
 
-    let mapfloor, state;
+    let mapfloor, state, hitBoxRect;
     
     function setup() {
       player = new Sprite(resources["Before_the_night.jpg"].texture);
@@ -56,7 +56,7 @@
       mapfloor.speed = 0.25;
       mapfloor.drag = 0.75;
       
-      let hitBoxRect = new Graphics();
+      hitBoxRect = new Graphics();
       hitBoxRect.lineStyle(4, 0xFF0000, 1);
       hitBoxRect.drawRect(player.x + 2, player.y + player.height / 2, player.width, player.height / 2);
       let bgWallRect = new Graphics();
