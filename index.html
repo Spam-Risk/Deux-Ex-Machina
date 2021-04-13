@@ -141,7 +141,7 @@
       mapfloor.x -= mapfloor.vx
       mapfloor.y -= mapfloor.vy
       
-      let collision = contain(mapfloor, {x:player.x, y:player.y, width: player.width, height: player.height});
+      let collision = contain(mapfloor, {x:hitBoxRect.x, y:hitBoxRect.y, width: hitBoxRect.width, height: hitBoxRect.height});
       
       if (collision) {
         if(collision.has("left") || collision.has("right")) {mapfloor.vx = 0}
