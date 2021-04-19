@@ -29,7 +29,7 @@
       .add("Before_the_night.jpg")
       .load(setup);
 
-    let mapfloor, state, hitBoxRect;
+    let mapfloor, state, hitBoxRect, bgWallRect;
     
     function setup() {
       player = new Sprite(resources["Before_the_night.jpg"].texture);
@@ -59,12 +59,14 @@
       hitBoxRect = new Graphics();
       hitBoxRect.lineStyle(4, 0xFF0000, 1);
       hitBoxRect.drawRect(player.x + 2, player.y + player.height / 2, player.width, player.height / 2);
-      let bgWallRect = new Graphics();
+      bgWallRect = new Graphics();
       bgWallRect.lineStyle(4, 0xFF0000, 1);
       bgWallRect.drawRect(bgwall.x, bgwall.y, bgwall.width - 8, bgwall.height - 8);
       
       player.visible = true;
       bgwall.visible = false;
+      
+      b1 new Bump(PIXI);
       
       mapfloor.addChild(sprite3);
       mapfloor.addChild(bgwall);
@@ -147,6 +149,8 @@
         if(collision.has("left") || collision.has("right")) {mapfloor.vx = 0}
         if(collision.has("top") || collision.has("bottom")) {mapfloor.vy = 0}
       }
+      
+      hit(hitBoxRect, bgWallRect, true)
     }
     
     function keyboard(keyCode) {
