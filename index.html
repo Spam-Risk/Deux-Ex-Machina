@@ -131,6 +131,11 @@
     }
     
     function play() {
+      
+      if (b1.hitTestRectangle(bgWallRect, hitBoxRect) {
+          mapfloor.vy = 0;
+      }
+      
       mapfloor.vy += mapfloor.accelerationY
       mapfloor.vx += mapfloor.accelerationX
       
@@ -148,11 +153,6 @@
       if (collision) {
         if(collision.has("left") || collision.has("right")) {mapfloor.vx = 0}
         if(collision.has("top") || collision.has("bottom")) {mapfloor.vy = 0}
-      }
-      
-      if(b1.hitTestRectangle(hitBoxRect, bgWallRect)) {
-        //mapfloor.vy = 0;
-        window.alert()
       }
     }
     
