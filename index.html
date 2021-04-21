@@ -149,6 +149,10 @@
         if(collision.has("left") || collision.has("right")) {mapfloor.vx = 0}
         if(collision.has("top") || collision.has("bottom")) {mapfloor.vy = 0}
       }
+      
+      if(b1.hitTestRectangle(hitBoxRect, bgWallRect)) {
+        mapfloor.vx = 0;
+      }
     }
     
     function keyboard(keyCode) {
