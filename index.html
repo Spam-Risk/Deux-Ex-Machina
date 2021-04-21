@@ -70,7 +70,7 @@
       
       mapfloor.addChild(sprite3);
       //mapfloor.addChild(bgwall);
-      mapfloor.addChild(bgWallRect);
+      stage.addChild(bgWallRect);
       stage.addChild(mapfloor);
       //stage.addChild(player);
       stage.addChild(hitBoxRect);
@@ -152,7 +152,7 @@
       
       if(b1.hitTestRectangle(hitBoxRect, bgWallRect)) {
         //mapfloor.vy = 0;
-        window.alert("beep boop")
+        window.alert()
       }
     }
     
