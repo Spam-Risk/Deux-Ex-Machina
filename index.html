@@ -69,7 +69,7 @@
       b1 = new Bump(PIXI);
       
       mapfloor.addChild(sprite3);
-      //mapfloor.addChild(bgwall);
+      mapfloor.addChild(bgwall);
       mapfloor.addChild(bgWallRect);
       stage.addChild(mapfloor);
       //stage.addChild(player);
@@ -132,7 +132,7 @@
     
     function play() {
       
-      if (b1.hitTestRectangle(bgWallRect, hitBoxRect)) {
+      if (b1.hitTestRectangle(bgwall, hitBoxRect)) {
           mapfloor.vy = 0;
       }
       
