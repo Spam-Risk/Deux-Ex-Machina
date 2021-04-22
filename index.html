@@ -13,7 +13,8 @@
         Sprite = PIXI.Sprite,
         loader = PIXI.loader,
         resources = PIXI.loader.resources,
-        Graphics = PIXI.Graphics
+        Graphics = PIXI.Graphics,
+        Text = PIXI.Text
     
     let stage = new Container(),
         renderer = autoDetectRenderer(window.innerHeight - 16, window.innerHeight - 16);
@@ -29,7 +30,7 @@
       .add("Before_the_night.jpg")
       .load(setup);
 
-    let mapfloor, state, hitBoxRect, bgWallRect;
+    let mapfloor, state, hitBoxRect, bgWallRect, test1, test2;
     
     function setup() {
       player = new Sprite(resources["Before_the_night.jpg"].texture);
@@ -56,6 +57,13 @@
       mapfloor.speed = 0.25;
       mapfloor.drag = 0.75;
       
+      test1 = new Text("Henlo", {font: "24px Arial"})
+      test1.x = 0;
+      test1.y = 0;
+      test2 = new Text("HEEEN", {font: "24px Impact"})
+      test2.x = 50;
+      test2.y = 50:
+      
       hitBoxRect = new Graphics();
       hitBoxRect.lineStyle(4, 0xFF0000, 1);
       hitBoxRect.drawRect(player.x, player.y + player.height / 2, player.width, player.height / 2);
@@ -74,6 +82,9 @@
       stage.addChild(mapfloor);
       stage.addChild(player);
       stage.addChild(hitBoxRect);
+      
+      stage.addChild(test1)
+      stage.addChild(test2)
       
       var left = keyboard(37),
           up = keyboard(38),
