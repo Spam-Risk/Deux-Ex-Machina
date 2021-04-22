@@ -72,7 +72,7 @@
       mapfloor.addChild(bgwall);
       mapfloor.addChild(bgWallRect);
       stage.addChild(mapfloor);
-      //stage.addChild(player);
+      stage.addChild(player);
       stage.addChild(hitBoxRect);
       
       var left = keyboard(37),
@@ -132,7 +132,7 @@
     
     function play() {
       
-      if (b1.hitTestRectangle(bgwall, hitBoxRect)) {
+      if (b1.hitTestRectangle(player, bgwall)) {
           mapfloor.vy = 0;
       }
       
